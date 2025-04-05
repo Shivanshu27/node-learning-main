@@ -1,0 +1,44 @@
+Memory Management in Node.js
+Memory management in Node.js involves the allocation, use, and release of memory in the JavaScript runtime. Node.js uses the V8 engine, which is responsible for memory management, garbage collection, and optimizing code execution.
+
+Key Concepts in Memory Management
+Heap: The memory pool used for dynamic memory allocation. The V8 engine uses the heap to store objects, strings, and closures.
+
+Garbage Collection: The process of automatically reclaiming memory that is no longer in use. The V8 engine uses a generational garbage collection algorithm.
+
+Stack: Used for managing function calls and local variables.
+V8 Memory Limits
+
+V8 has default memory limits which can be adjusted:
+
+
+Default Limits: Approximately 1.5GB on 32-bit systems and 4GB on 64-bit systems.
+
+Increasing Limits: Use the --max-old-space-size flag to increase the heap size.
+
+
+node --max-old-space-size=8192 your_script.js
+
+
+Garbage Collection
+V8 uses two main garbage collection algorithms:
+
+Scavenge (Minor GC): Used for the new generation (young objects). It is fast and frequent.
+Mark-Sweep and Mark-Compact (Major GC): Used for the old generation (long-lived objects). It is slower and less frequent.
+
+
+Tools for Memory Management
+Process Memory Usage: Use process.memoryUsage() to get an overview of memory usage.
+Heap Snapshots: Use tools like Chrome DevTools or node-inspect to capture and analyze heap snapshots.
+Profilers: Use profilers like v8-profiler to monitor memory usage and identify leaks.
+
+
+Best Practices for Memory Management
+Avoid Global Variables: Minimize the use of global variables to prevent memory leaks.
+Use Buffer Wisely: Be cautious with Buffer objects as they can consume a significant amount of memory.
+Optimize Data Structures: Use efficient data structures and avoid unnecessary object creation.
+Manual Garbage Collection: Use global.gc() in development to trigger garbage collection manually (requires running Node.js with the --expose-gc flag).
+
+
+Summary
+Memory management in Node.js involves understanding how the V8 engine allocates and manages memory, using tools to monitor and analyze memory usage, and following best practices to optimize memory consumption and prevent leaks. By effectively managing memory, you can ensure that your Node.js applications run efficiently and reliably.

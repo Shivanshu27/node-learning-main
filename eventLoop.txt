@@ -1,0 +1,14 @@
+What is the Event Loop?
+The event loop is a crucial part of Node.js that handles asynchronous operations. Node.js is single-threaded and uses the event loop to manage non-blocking I/O operations. It allows Node.js to perform non-blocking I/O operations despite being single-threaded by offloading operations to the system kernel whenever possible.
+
+How the Event Loop Works
+The event loop runs in phases. Each phase has a specific task to perform, and it will execute callbacks related to that task. The phases are:
+
+Timers: Executes callbacks scheduled by setTimeout() and setInterval().
+Pending Callbacks: Executes I/O callbacks deferred to the next loop iteration.
+Idle, Prepare: Only used internally.
+Poll: Retrieves new I/O events; executes I/O-related callbacks (almost all I/O callbacks except close, timers, and setImmediate()).
+Check: Executes callbacks scheduled by setImmediate().
+Close Callbacks: Executes close event callbacks (e.g., socket.on('close', ...)).
+
+
