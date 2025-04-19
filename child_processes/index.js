@@ -11,38 +11,6 @@
 // Scaling Applications: Spawning multiple worker processes for better performance.
 
 
-// spawn()
-// Purpose: Used to execute a command as a child process.
-// Non-blocking: Returns a ChildProcess instance that streams output.
-// Best for: Long-running processes or handling large outputs.
-// When to use spawn:
-
-// When dealing with large outputs (since it uses streams).
-// For long-running processes (like watching files, logging, etc.).
-
-// fork()
-// Purpose: Spawns a new Node.js process that runs a separate script.
-// Best for: Running separate Node.js scripts while allowing communication via messages.
-
-// When to use fork:
-
-// When you need IPC (Inter-Process Communication) between parent and child processes.
-// When running Node.js scripts in a separate process.
-
-
-// Key Differences Between spawn and fork
-// Feature	spawn	fork
-// Execution  	Runs any command	    Runs a Node.js script
-// Output    Handling	Uses streams for stdout/stderr	    Uses IPC (message passing)
-// Blocking?	Non-blocking (handles large output efficiently)   	Non-blocking
-// Best Use Case    	Running shell commands	        Running separate Node.js processes
-
-// When to Use What?
-// Use spawn when running external commands or system-level processes (e.g., ffmpeg, ls, curl).
-// Use fork when you need to run a separate Node.js process and communicate with it.
-
-
-
 
 // Example using exec
 const { exec } = require('child_process');
@@ -114,5 +82,37 @@ child.on('exit', (code, signal) => {
 // 1. exec: Runs a command in a shell and buffers the output. Suitable for commands with small output.
 // 2. execFile: Runs an executable file directly without a shell. Suitable for running scripts or binaries.
 // 3. spawn: Launches a new process with a given command. Suitable for commands with large output or long-running processes.
+
+
+
+// spawn()
+// Purpose: Used to execute a command as a child process.
+// Non-blocking: Returns a ChildProcess instance that streams output.
+// Best for: Long-running processes or handling large outputs.
+// When to use spawn:
+
+// When dealing with large outputs (since it uses streams).
+// For long-running processes (like watching files, logging, etc.).
+
+// fork()
+// Purpose: Spawns a new Node.js process that runs a separate script.
+// Best for: Running separate Node.js scripts while allowing communication via messages.
+
+// When to use fork:
+
+// When you need IPC (Inter-Process Communication) between parent and child processes.
+// When running Node.js scripts in a separate process.
+
+
+// Key Differences Between spawn and fork
+// Feature	spawn	fork
+// Execution  	Runs any command	    Runs a Node.js script
+// Output    Handling	Uses streams for stdout/stderr	    Uses IPC (message passing)
+// Blocking?	Non-blocking (handles large output efficiently)   	Non-blocking
+// Best Use Case    	Running shell commands	        Running separate Node.js processes
+
+// When to Use What?
+// Use spawn when running external commands or system-level processes (e.g., ffmpeg, ls, curl).
+// Use fork when you need to run a separate Node.js process and communicate with it.
 
 
