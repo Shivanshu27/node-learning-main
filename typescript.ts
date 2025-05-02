@@ -107,3 +107,13 @@ let point: PointInterface = { x: 1, y: 2, z: 3 };
 type ComplexType = string | number | { x: number; y: number };
 
 // These are some of the basic concepts of TypeScript to get you started.
+
+// Why do we use TypeScript?
+
+// 1. **Static Typing**: TypeScript introduces static typing, which helps catch errors at compile time rather than runtime, improving code reliability.
+// 2. **Improved IDE Support**: TypeScript provides better autocompletion, navigation, and refactoring support in IDEs, enhancing developer productivity.
+// 3. **Readability and Maintainability**: With explicit types, the code becomes more readable and easier to maintain, especially in large projects.
+// 4. **Compatibility with JavaScript**: TypeScript is a superset of JavaScript, meaning any valid JavaScript code is also valid TypeScript code, making it easy to adopt incrementally.
+// 5. **Advanced Features**: TypeScript offers features like interfaces, generics, and decorators, which are not available in plain JavaScript.
+// 6. **Scalability**: TypeScript is particularly useful for large-scale applications, where type safety and maintainability are critical.
+// 7. **Community and Ecosystem**: TypeScript has a growing community and is widely adopted in modern frameworks like Angular, making it a valuable skill for developers.
