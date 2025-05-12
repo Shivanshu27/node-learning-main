@@ -293,7 +293,6 @@ console.log(array); // [1, 2, 3, 4, 5]
 
 
 
-
 // Difference between `null`, `undefined`, and `new`:
 
 // 1. `null`:
@@ -624,6 +623,52 @@ const throttle = (func, limit) => {
 // Explanation:
 // Debouncing delays the execution of a function until a specified delay has passed since the last time it was called.
 // Throttling limits the execution of a function to once every specified limit, regardless of how many times it is called.
+
+
+
+
+
+
+
+
+
+// Shallow Copy vs Deep Copy:
+
+// 1. Shallow Copy:
+// - A shallow copy creates a new object, but it only copies the references of nested objects, not the actual objects themselves.
+// - Changes made to the nested objects in the copied object will affect the original object.
+
+const originalObject = { a: 1, b: { c: 2 } };
+const shallowCopy = { ...originalObject };
+
+shallowCopy.b.c = 42;
+console.log(originalObject.b.c); // 42 (affected)
+
+// Methods to create a shallow copy:
+// - Using the spread operator (`...`)
+// - Using `Object.assign()`
+
+const shallowCopyUsingAssign = Object.assign({}, originalObject);
+
+// 2. Deep Copy:
+// - A deep copy creates a new object and recursively copies all nested objects, ensuring that the original object is completely independent of the copied object.
+// - Changes made to the nested objects in the copied object will not affect the original object.
+
+const deepCopy = JSON.parse(JSON.stringify(originalObject));
+
+deepCopy.b.c = 99;
+console.log(originalObject.b.c); // 42 (not affected)
+
+// Methods to create a deep copy:
+// - Using `JSON.parse(JSON.stringify())` (limitations: does not handle functions, `undefined`, or circular references)
+// - Using libraries like Lodash (`_.cloneDeep`)
+
+const _ = require('lodash');
+const deepCopyUsingLodash = _.cloneDeep(originalObject);
+
+// When to Use:
+// - Use a shallow copy when the object does not contain nested objects or when you don't need to modify nested objects independently.
+// - Use a deep copy when you need to ensure that the original object and the copied object are completely independent.
 
 
 
